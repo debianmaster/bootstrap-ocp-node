@@ -19,6 +19,7 @@ aws ec2 describe-instances --filters "Name=key-name,Values=ck_workshop" | grep P
 54.70.161.129
 ```
 
+### Update hosts  file based on the output
 
 ### Bootstrap Node
 ```sh
