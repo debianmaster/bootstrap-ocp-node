@@ -1,0 +1,5 @@
+[ocp]
+52.41.45.165  ansible_ssh_user=ec2-user
+52.33.111.141 ansible_ssh_user=ec2-user
+54.70.161.129 ansible_ssh_user=ec2-user
+
