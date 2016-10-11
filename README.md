@@ -6,6 +6,7 @@
 ```sh
 aws configure
 aws ec2 create-security-group --group-name ocp-common --description "OCP Common"
+aws ec2 authorize-security-group-ingress --group-name ocp-common --protocol tcp --port 0-65000 --cidr 0.0.0.0/24
 
 aws ec2 run-instances --image-id ami-a3fa16c3 --count 2 --instance-type t2.medium --key-name ck_workshop  --security-groups ocp-common
 
