@@ -2,8 +2,10 @@
 ## Bootstrap OCP node.  (Do not use)
 
 
-
+### Setup AWS Instances (Optional)
 ```sh
+AWS_ACCESS_KEY_ID=your_key_id
+AWS_SECRET_ACCESS_KEY=your_aws_secret_key
 aws configure
 aws ec2 create-security-group --group-name ocp-common --description "OCP Common"
 aws ec2 authorize-security-group-ingress --group-name ocp-common --protocol tcp --port 0-65000 --cidr 0.0.0.0/24
@@ -15,7 +17,11 @@ aws ec2 describe-instances --filters "Name=key-name,Values=ck_workshop" | grep P
 52.41.45.165
 52.33.111.141
 54.70.161.129
+```
 
+
+### Bootstrap Node
+```sh
 ansible all -i hosts -m shell -su --su-user=ec2-user -a "subscription-manager register --username=username --password=password --force" 
 
 ansible all -i hosts -m shell -su --su-user=ec2-user -a "subscription-manager attach --pool=$(subscription-manager list --available --matches "Red Hat OpenShift Container Platform" --pool-only)"
