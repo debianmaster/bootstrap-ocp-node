@@ -12,7 +12,9 @@ aws ec2 authorize-security-group-ingress --group-name ocp-common --protocol tcp 
 
 aws ec2 run-instances --image-id ami-a3fa16c3 --count 2 --instance-type t2.medium --key-name ck_workshop  --security-groups ocp-common
 
-aws ec2 describe-instances --filters "Name=key-name,Values=ck_workshop" | grep PublicIp | grep PublicIpAddress | awk '{print $2}' | sed 's/"//g' | sed 's/,//g'
+echo "[nodes]\r\n" > hosts
+
+aws ec2 describe-instances --filters "Name=key-name,Values=ck_workshop" | grep PublicIp | grep PublicIpAddress | awk '{print $2}' | sed 's/"//g' | sed 's/,//g'  >> hosts
 
 52.41.45.165
 52.33.111.141
