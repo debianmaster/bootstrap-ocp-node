@@ -21,6 +21,12 @@ echo "[nodes]" > hosts
 aws ec2 describe-instances --filters "Name=key-name,Values=ck_workshop" | grep PublicIp | grep PublicIpAddress | awk '{print $2}' | sed 's/"//g' | sed 's/,//g'  >> hosts
 ```
 
+### Login to master and generate id_rsa.pub
+```sh
+# Copy public file to id_rsa.pub on same folder
+ansible-playbook -i hosts copy-ssh-key.playbook  -su --su-user=ec2-user
+```
+
 ### Bootstrap Node
 ```sh
 ansible all -i hosts -m shell -su --su-user=ec2-user -a "subscription-manager register --username=username --password=password --force" 
