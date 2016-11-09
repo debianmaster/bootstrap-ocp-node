@@ -6,6 +6,8 @@
 ```sh
 AWS_ACCESS_KEY_ID=your_key_id
 AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+ANSIBLE_HOST_KEY_CHECKING=false
+
 aws configure
 aws ec2 create-security-group --group-name ocp-common --description "OCP Common"
 aws ec2 authorize-security-group-ingress --group-name ocp-common --protocol tcp --port 0-65000 --cidr 0.0.0.0/24
