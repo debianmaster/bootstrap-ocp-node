@@ -26,11 +26,7 @@ aws ec2 describe-instances --filters "Name=key-name,Values=ck_workshop" | grep P
 export OCP_MASTER=$(cat hosts  | head -2 | tail -1)
 # Copy public file to id_rsa.pub on same folder
 ssh-add <your_aws_pem> 
-ssh $OCP_MASTER
-sudo su
-ssh-keygen
-#copy ssh ec2-user@$OCP_MASTER cat /root/.ssh/id_rsa.pub >  id_rsa.pub
-ansible-playbook -i hosts copy-ssh-key.playbook  -su --su-user=ec2-user
+scp -r ~/aws/ck_workshop.pem ec2-user@$OCP_MASTER:/home/ec2-user
 ```
 
 ### Bootstrap Node
