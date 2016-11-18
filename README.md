@@ -37,13 +37,13 @@ ansible-playbook -i hosts copy-ssh-key.playbook  -su --su-user=ec2-user
 ```sh
 ansible all -i hosts -m shell -su --su-user=ec2-user -u ec2-user -a "subscription-manager register --username=username --password=password --force" 
 
-ansible all -i hosts -m shell -su --su-user=ec2-user -a 'subscription-manager attach --pool=$(subscription-manager list --available --matches "Red Hat OpenShift Container Platform" --pool-only)'
+ansible all -i hosts -m shell -su --su-user=ec2-user -u ec2-user -a 'subscription-manager attach --pool=$(subscription-manager list --available --matches "Red Hat OpenShift Container Platform" --pool-only)'
 
-ansible all -i hosts -m shell -su --su-user=ec2-user -a "subscription-manager repos --disable='*'"
+ansible all -i hosts -m shell -su --su-user=ec2-user -u ec2-user -a "subscription-manager repos --disable='*'"
 
-ansible all -i hosts -m shell -su --su-user=ec2-user -a 'subscription-manager repos --enable="rhel-7-server-rpms" --enable="rhel-7-server-extras-rpms" --enable="rhel-7-server-ose-3.3-rpms"'
+ansible all -i hosts -m shell -su --su-user=ec2-user -u ec2-user -a 'subscription-manager repos --enable="rhel-7-server-rpms" --enable="rhel-7-server-extras-rpms" --enable="rhel-7-server-ose-3.3-rpms"'
 
-ansible all -i hosts -m shell -su --su-user=ec2-user -a 'yum -y install wget git net-tools bind-utils iptables-services bridge-utils bash-completion'
+ansible all -i hosts -m shell -su --su-user=ec2-user -u ec2-user -a 'yum -y install wget git net-tools bind-utils iptables-services bridge-utils bash-completion'
 
-ansible all -i hosts -m shell -su --su-user=ec2-user -a 'yum -y install atomic-openshift-utils' 
+ansible all -i hosts -m shell -su --su-user=ec2-user -u ec2-user -a 'yum -y install atomic-openshift-utils' 
 ```
