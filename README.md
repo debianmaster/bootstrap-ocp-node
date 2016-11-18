@@ -35,7 +35,7 @@ ansible-playbook -i hosts copy-ssh-key.playbook  -su --su-user=ec2-user
 
 ### Bootstrap Node
 ```sh
-ansible all -i hosts -m shell -su --su-user=ec2-user -a "subscription-manager register --username=username --password=password --force" 
+ansible all -i hosts -m shell -su --su-user=ec2-user -u ec2-user -a "subscription-manager register --username=username --password=password --force" 
 
 ansible all -i hosts -m shell -su --su-user=ec2-user -a 'subscription-manager attach --pool=$(subscription-manager list --available --matches "Red Hat OpenShift Container Platform" --pool-only)"'
 
