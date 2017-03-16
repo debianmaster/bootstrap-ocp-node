@@ -1,3 +1,4 @@
+```sh
 export AWS_ACCESS_KEY_ID=your_key_id
 export AWS_SECRET_ACCESS_KEY=your_aws_secret_key
 export ANSIBLE_HOST_KEY_CHECKING=false
@@ -37,3 +38,4 @@ ansible all -i hosts -m shell -su --su-user=ec2-user -u ec2-user -a 'yum -y inst
 ansible all -i hosts -m shell -su --su-user=ec2-user -u ec2-user -a "subscription-manager unregister  --force" 
 
 ssh ec2-user@$OCP_MASTER
+```
