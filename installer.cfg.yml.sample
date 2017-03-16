@@ -1,0 +1,86 @@
+ansible_callback_facts_yaml: /home/ec2-user/.config/openshift/.ansible/callback_facts.yaml
+ansible_inventory_path: /home/ec2-user/.config/openshift/hosts
+ansible_log_path: /tmp/ansible.log
+deployment:
+  ansible_ssh_user: ec2-user
+  hosts:
+  - connect_to: 52.88.179.99
+    containerized: true
+    hostname: ip-172-31-8-232.us-west-2.compute.internal
+    ip: 172.31.8.232
+    public_hostname: ec2-52-88-179-99.us-west-2.compute.amazonaws.com
+    public_ip: 52.88.179.99
+    roles:
+    - master
+    - etcd
+    - node
+  - connect_to: 52.89.160.55
+    containerized: true
+    hostname: ip-172-31-0-49.us-west-2.compute.internal
+    ip: 172.31.0.49
+    node_labels: '{''region'': ''infra''}'
+    public_hostname: ec2-52-89-160-55.us-west-2.compute.amazonaws.com
+    public_ip: 52.89.160.55
+    roles:
+    - node
+  - connect_to: 52.43.172.216
+    containerized: true
+    hostname: ip-172-31-11-224.us-west-2.compute.internal
+    ip: 172.31.11.224
+    node_labels: '{''region'': ''infra''}'
+    public_hostname: ec2-52-43-172-216.us-west-2.compute.amazonaws.com
+    public_ip: 52.43.172.216
+    roles:
+    - node
+  - connect_to: 52.89.167.38
+    containerized: true
+    hostname: ip-172-31-3-5.us-west-2.compute.internal
+    ip: 172.31.3.5
+    public_hostname: ec2-52-89-167-38.us-west-2.compute.amazonaws.com
+    public_ip: 52.89.167.38
+    roles:
+    - node
+  - connect_to: 35.161.47.51
+    containerized: true
+    hostname: ip-172-31-27-63.us-west-2.compute.internal
+    ip: 172.31.27.63
+    public_hostname: ec2-35-161-47-51.us-west-2.compute.amazonaws.com
+    public_ip: 35.161.47.51
+    roles:
+    - node
+  - connect_to: 35.161.148.39
+    hostname: ip-172-31-27-64.us-west-2.compute.internal
+    ip: 172.31.27.64
+    public_hostname: ec2-35-161-148-39.us-west-2.compute.amazonaws.com
+    public_ip: 35.161.148.39
+    roles:
+    - node
+    - storage
+  master_routingconfig_subdomain: ocp.ck.osecloud.com
+  openshift_cloudprovider_aws_access_key: XXXXXXXXXXX
+  openshift_cloudprovider_aws_secret_key: YYYYYYYYYYY
+  openshift_cloudprovider_kind: aws
+  openshift_hosted_logging_deploy: Talse
+  openshift_hosted_logging_hostname: kibana.ocp.ck.osecloud.com
+  openshift_hosted_logging_storage_kind: ''
+  openshift_hosted_manage_registry: 'True'
+  openshift_hosted_metrics_deploy: Talse
+  openshift_hosted_metrics_public_url: hawkular-metrics.ocp.ck.osecloud.com/hawkular/metrics
+  openshift_hosted_metrics_storage_kind: ''
+  openshift_master_api_port: '443'
+  openshift_master_cluster_hostname: cloud.ck.osecloud.com
+  openshift_master_cluster_public_hostname: cloud.ck.osecloud.com
+  openshift_master_console_port: '443'
+  openshift_master_dynamic_provisioning_enabled: 'True'
+  os_sdn_network_plugin_name: redhat/openshift-ovs-multitenant
+  proxy_exclude_hosts: ''
+  proxy_http: ''
+  proxy_https: ''
+  roles:
+    etcd: {}
+    master: {}
+    node: {}
+    storage: {}
+variant: openshift-enterprise
+variant_version: '3.4'
+version: v2
