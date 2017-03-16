@@ -38,4 +38,6 @@ ansible all -i hosts -m shell -su --su-user=ec2-user -u ec2-user -a 'yum -y inst
 ansible all -i hosts -m shell -su --su-user=ec2-user -u ec2-user -a "subscription-manager unregister  --force" 
 
 ssh ec2-user@$OCP_MASTER
+ssh-agent $SHELL
+ssh-add /tmp/ck_workshop.pem 
 ```
